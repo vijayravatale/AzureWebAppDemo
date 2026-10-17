@@ -1,0 +1,16 @@
+@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Add lead";
+}
+
+<a class="back" asp-page="Index">Back to leads</a>
+<h1>Add lead</h1>
+
+<form method="post" class="card form">
+    <partial name="_LeadForm" for="Lead" />
+    <div class="form-actions">
+        <a class="btn btn-quiet" asp-page="Index">Cancel</a>
+        <button type="submit" class="btn btn-primary">Add lead</button>
+    </div>
+</form>

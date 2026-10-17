@@ -1,0 +1,47 @@
+@model Lead
+
+<div asp-validation-summary="ModelOnly" class="field-error"></div>
+
+<div class="form-grid">
+    <div class="field span-2">
+        <label asp-for="Name">Full name</label>
+        <input asp-for="Name" required maxlength="80" autocomplete="off" />
+        <span asp-validation-for="Name" class="field-error"></span>
+    </div>
+
+    <div class="field">
+        <label asp-for="Company">Company</label>
+        <input asp-for="Company" maxlength="80" autocomplete="off" />
+        <span asp-validation-for="Company" class="field-error"></span>
+    </div>
+
+    <div class="field">
+        <label asp-for="Stage">Stage</label>
+        <select asp-for="Stage" asp-items="Html.GetEnumSelectList<LeadStage>()"></select>
+        <span asp-validation-for="Stage" class="field-error"></span>
+    </div>
+
+    <div class="field">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" type="email" maxlength="120" autocomplete="off" />
+        <span asp-validation-for="Email" class="field-error"></span>
+    </div>
+
+    <div class="field">
+        <label asp-for="Phone">Phone</label>
+        <input asp-for="Phone" type="tel" maxlength="30" autocomplete="off" />
+        <span asp-validation-for="Phone" class="field-error"></span>
+    </div>
+
+    <div class="field">
+        <label asp-for="Value">Deal value (₹)</label>
+        <input asp-for="Value" type="number" min="0" step="any" inputmode="decimal" />
+        <span asp-validation-for="Value" class="field-error"></span>
+    </div>
+
+    <div class="field span-2">
+        <label asp-for="Notes">Notes</label>
+        <textarea asp-for="Notes" rows="4" maxlength="500"></textarea>
+        <span asp-validation-for="Notes" class="field-error"></span>
+    </div>
+</div>

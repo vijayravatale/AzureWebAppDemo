@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - LeadDesk</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="topbar">
+        <div class="wrap bar">
+            <a class="brand" asp-page="/Index">LeadDesk</a>
+            <a class="btn btn-primary" asp-page="/Create">Add lead</a>
+        </div>
+    </header>
+
+    <main class="wrap main">
+        @if (TempData["Message"] is string message)
+        {
+            <div class="toast" role="status">@message</div>
+        }
+        @RenderBody()
+    </main>
+
+    <footer class="wrap foot">
+        Data is held in memory and resets whenever the app restarts.
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

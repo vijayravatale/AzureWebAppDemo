@@ -1,0 +1,16 @@
+@page "{id:guid}"
+@model EditModel
+@{
+    ViewData["Title"] = "Edit lead";
+}
+
+<a class="back" asp-page="Index">Back to leads</a>
+<h1>Edit lead</h1>
+
+<form method="post" class="card form">
+    <partial name="_LeadForm" for="Lead" />
+    <div class="form-actions">
+        <a class="btn btn-quiet" asp-page="Index">Cancel</a>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+    </div>
+</form>

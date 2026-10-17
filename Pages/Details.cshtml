@@ -1,0 +1,29 @@
+@page "{id:guid}"
+@model DetailsModel
+@{
+    ViewData["Title"] = Model.Lead.Name;
+}
+
+<a class="back" asp-page="Index">Back to leads</a>
+
+<div class="detail-head">
+    <div>
+        <h1>@Model.Lead.Name</h1>
+        <p class="muted">@Model.Lead.Company</p>
+    </div>
+    <span class="badge" data-stage="@Model.Lead.Stage">@Model.Lead.Stage</span>
+</div>
+
+<div class="card">
+    <dl class="facts">
+        <div><dt>Email</dt><dd>@(string.IsNullOrEmpty(Model.Lead.Email) ? "—" : Model.Lead.Email)</dd></div>
+        <div><dt>Phone</dt><dd>@(string.IsNullOrEmpty(Model.Lead.Phone) ? "—" : Model.Lead.Phone)</dd></div>
+        <div><dt>Deal value</dt><dd>@Model.Lead.FormattedValue</dd></div>
+        <div><dt>Created</dt><dd>@Model.Lead.CreatedUtc.ToString("dd MMM yyyy")</dd></div>
+        <div><dt>Last updated</dt><dd>@Model.Lead.UpdatedUtc.ToString("dd MMM yyyy")</dd></div>
+        <div class="wide"><dt>Notes</dt><dd>@(string.IsNullOrEmpty(Model.Lead.Notes) ? "—" : Model.Lead.Notes)</dd></div>
+    </dl>
+    <div class="form-actions">
+        <a class="btn btn-primary" asp-page="Edit" asp-route-id="@Model.Lead.Id">Edit lead</a>
+    </div>
+</div>
